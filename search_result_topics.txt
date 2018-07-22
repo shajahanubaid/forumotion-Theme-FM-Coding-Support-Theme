@@ -1,0 +1,54 @@
+<div class="main paged">
+<form action="{S_ACTION}" method="post" name="post" onsubmit="return verify_select();" class="frm-form">
+	<div class="paged-head clearfix">
+		<p class="paging">{PAGINATION}</p>
+	</div>
+
+	<div class="main-head">
+          <h1 class="page-title"><span class="filterb">{L_SEARCH_MATCHES}</span></h1>
+	</div>
+
+	<div class="main-content">
+		<table class="table" cellspacing="0">
+			<thead>
+				<tr>
+					<th class="tcl">{L_TOPICS}</th>
+					<th class="tc2">{L_FORUM}</th>
+					<th class="tc3">&nbsp;</th>
+					<th class="tcr">{L_LASTPOST}</th>
+				</tr>
+			</thead>
+
+			<tbody class="statused">
+				<!-- BEGIN searchresults -->
+				<tr>
+					<td class="tcl tdtopics search">
+						<span class="status">
+							<img src="{searchresults.TOPIC_FOLDER_IMG}" alt="{searchresults.L_TOPIC_FOLDER_ALT}" title="{searchresults.L_TOPIC_FOLDER_ALT}" />
+						</span>
+                        {searchresults.TOPIC_ICON}&nbsp;
+						{searchresults.NEWEST_POST_IMG}
+						{searchresults.PARTICIPATE_POST_IMG}&nbsp;
+						{searchresults.TOPIC_TYPE}&nbsp;
+						<h2 class="topic-title"> <a class="topictitle" href="{searchresults.U_VIEW_TOPIC}" style="margin-left: -30px;">{searchresults.TOPIC_TITLE}</a></h2>&nbsp;
+						{searchresults.GOTO_PAGE}&nbsp;
+                                          <br/><p style="color: #a4a4a4; margin-left: -13px;">Started by {searchresults.TOPIC_AUTHOR}</p>
+					</td>
+					<td class="tc2"><a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_NAME}</a></td>
+                                  <td class="tc3" style="text-align: right; padding-right: 5px; color: #777 !important;">{searchresults.REPLIES} replies<br/>
+                                    {searchresults.VIEWS} views</td>
+                                  <td class="tcr"><p style="margin-top: 8px;">{searchresults.LAST_POST_AUTHOR}<br/>{searchresults.LAST_POST_TIME}</p></td>
+				</tr>
+				<!-- END searchresults -->
+			</tbody>
+		</table>
+	</div>
+
+	<div class="main-foot">
+	</div>
+
+	<div class="paged-foot clearfix">
+		<p class="paging">{PAGINATION}</p>
+	</div>
+</form>
+</div>

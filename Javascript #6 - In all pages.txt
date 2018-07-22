@@ -1,0 +1,10 @@
+jQuery(document).ready(function() {
+  var url=$('.post:first .postmain .postbody .user .user-ident .user-basic-info a img').attr('src');
+  $('.teste').attr('src',url);
+  var url2=jQuery('.post:first .postmain .postbody .user .user-ident .user-basic-info a').attr('href');
+  jQuery('.teste2').attr('href',url2);
+  var url3=jQuery('span.creator').html();
+  jQuery('span[itemprop="creator"]').html(url3);
+  var url5=jQuery('span.data-post').html();
+  jQuery('span[itemprop="data_post"]').html(url5);
+});

@@ -1,0 +1,424 @@
+<!-- SEARCH FORM -->
+<h1 class="ipsType_pagetitle">Members</h1>
+<!-- BEGIN switch_pagination -->
+<div class="paged-head clearfix">
+   <p class="paging">{PAGINATION}</p>
+</div>
+<!-- END switch_pagination -->
+
+<div class="ipsBox ipsVerticalTabbed ipsLayout ipsLayout_withleft ipsLayout_tinyleft clearfix">
+   <div id="mlist_tabs" class="ipsVerticalTabbed_tabs ipsVerticalTabbed_minitabs ipsLayout_left">
+      <ul>
+         <li class="tab_toggle active"><a title="All members name" href="0">All</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter A" href="a">A</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter B" href="b">B</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter C" href="c">C</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter D" href="d">D</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter E" href="e">E</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter F" href="f">F</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter G" href="g">G</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter H" href="h">H</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter I" href="i">I</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter J" href="j">J</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter K" href="k">K</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter L" href="l">L</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter M" href="m">M</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter N" href="n">N</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter O" href="o">O</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter P" href="p">P</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter Q" href="q">Q</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter R" href="r">R</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter S" href="s">S</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter T" href="t">T</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter U" href="u">U</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter V" href="v">V</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter W" href="w">W</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter X" href="x">X</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter Y" href="y">Y</a></li>
+         <li class="tab_toggle"><a title="Members name starting with letter Z" href="z">Z</a></li>
+      </ul>
+   </div>
+   <div class="ipsVerticalTabbed_content ipsLayout_content">
+      <div class="maintitle ipsFilterbar clear clearfix">
+         <ul class="ipsList_inline left">
+            <li class="tab_toggle_horizontal active">
+               <a title="Filter by Username" href="userName">Name</a>
+            </li>
+            <li class="tab_toggle_horizontal">
+               <a title="Filter by Posts" href="posts">Posts</a>
+            </li>
+            <li class="tab_toggle_horizontal">
+               <a title="Filter by Date Registered" href="joined">Date Registered</a>
+            </li>
+         </ul>
+      </div>
+      <div id="mlist_content" class="ipsBox_container ipsPad" style="min-height: 769px;">
+         <ul class="ipsMemberList">
+             <!-- BEGIN memberrow -->
+            <li class="ipsPad clearfix member_entry row1" id="member_id_">
+    <a class="ipsUserPhotoLink left" title="View Profile" href="{memberrow.U_VIEWPROFILE}">
+                  {memberrow.AVATAR_IMG}
+                  <!--<img class="ipsUserPhoto ipsUserPhoto_medium" alt="- foto" src="">-->
+      </a>
+               <div class="ipsBox_withphoto">
+                  <ul class="ipsList_inline right">
+                     <li><a class="ipsButton_secondary" href="{memberrow.U_VIEWPROFILE}">View Profile</a></li>
+                  </ul>
+                  <h3 class="ipsType_subtitle">
+                     <strong><a title="Visualizar Perfil" href="{memberrow.U_VIEWPROFILE}">{memberrow.USERNAME}</a></strong>
+                  </h3>
+                  <span class="desc">
+                     Joined Date - {memberrow.JOINED}
+                     <br>
+                     {memberrow.POSTS} posts
+                  </span>
+               </div>
+            </li>
+            <!-- END memberrow -->
+            <!-- BEGIN switch_no_user -->
+            <li colspan="{switch_no_user.COLSPAN_NUMBER}" class="no_messages">No result found</li>
+                <!-- END switch_no_user -->
+         </ul>
+      </div>
+   </div>
+</div>
+      <div class="main-foot">
+      </div>
+      <!-- BEGIN switch_pagination -->
+      <div class="paged-foot clearfix">
+          <p style="float: right; font-size: 11px; color: #848484;">JScript modify. Thank you!</p>
+      </div>
+      <!-- END switch_pagination -->
+  
+  
+<script type="text/javascript">
+   //<![CDATA[
+   $(document).ready(function(){
+      $(".tab_toggle:first").addClass("active").show();
+      $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+
+      $(".tab_toggle_horizontal").click(function(){
+         $(".tab_toggle_horizontal").removeClass("active");
+
+         $(this).addClass("active");
+
+         var activeTab = $(this).find("a").attr("href");
+         $(activeTab).fadeIn();
+
+         switch (activeTab)
+            {
+            case 'userName':
+               $("#mlist_content").load("/memberlist?mode=username&order=DESC&submit=Ok&username .ipsMemberList", function() {
+                  $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+               });
+               break;
+            case 'posts':
+               $("#mlist_content").load("/memberlist?mode=posts&order=DESC&submit=Ok&username .ipsMemberList", function() {
+                  $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+               });
+               break;
+            case 'joined':
+               $("#mlist_content").load("/memberlist?mode=joined&order=DESC&submit=Ok&username .ipsMemberList", function() {
+                  $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+               });
+               break;
+         }
+         return false;
+      });
+
+      $(".tab_toggle").click(function(){
+         $(".tab_toggle").removeClass("active");
+
+         $(this).addClass("active");
+
+         var activeTab = $(this).find("a").attr("href");
+         $(activeTab).fadeIn();
+
+         switch (activeTab)
+            {
+            case '0':
+               $("#mlist_content").load("/memberlist .ipsMemberList", function() {
+                  $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+               });
+               break;
+            default:
+               $("#mlist_content").load("/memberlist?mode=username&order&submit=Ok&username="+activeTab+" .ipsMemberList", function() {
+                  $('.ipsUserPhotoLink.left img').addClass("ipsUserPhoto ipsUserPhoto_medium");
+               });
+         }
+         return false;
+      });
+   });
+   //]]>
+</script>
+
+<style type="text/css">
+.maintitle a {
+    color: #FFFFFF;
+}
+.pun .paged-head {
+margin-left: -15px;
+}
+.clear {
+    clear: both;
+    height: auto !important;
+}
+.no_messages {
+    background-color: #F6F8FA;
+    color: #1C2837;
+    padding: 15px 10px;
+}
+#mlist_tabs {
+    margin-top: 35px;
+}
+#mlist_tabs li a {
+    padding: 5px 8px;
+}
+#mlist_tabs li {
+    text-align: center;
+}
+.ipsVerticalTabbed_tabs li a {
+    color: #8D8D8D;
+    display: block;
+    outline: 0 none;
+    padding: 10px 8px;
+    transition: background-color 0.3s ease-in-out 0s;
+}
+.ipsVerticalTabbed_content {
+    min-height: 400px;
+}
+.ipsVerticalTabbed_tabs > ul {
+    border-left: 1px solid #DBE4EF;
+    border-top: 1px solid #DBE4EF;
+    margin-top: 10px;
+    width: 149px !important;
+}
+.ipsVerticalTabbed_minitabs.ipsVerticalTabbed_tabs > ul {
+    width: 49px !important;
+}
+.ipsVerticalTabbed_tabs li {
+    background: none repeat scroll 0 0 #F6F8FB;
+    border-bottom: 1px solid #DBE4EF;
+    color: #808080;
+    font-size: 13px;
+}
+.ipsVerticalTabbed_tabs li a {
+    color: #8D8D8D;
+    display: block;
+    outline: 0 none;
+    padding: 10px 8px;
+    transition: background-color 0.3s ease-in-out 0s;
+}
+.ipsVerticalTabbed_tabs li a:hover {
+    background: none repeat scroll 0 0 #EAEFF5;
+    color: #808080;
+}
+.ipsVerticalTabbed_tabs li.active a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    color: #353535;
+    font-weight: bold;
+    position: relative;
+    width: 135px;
+    z-index: 8000;
+}
+.ipsVerticalTabbed_minitabs.ipsVerticalTabbed_tabs li.active a {
+    width: 32px;
+}
+.ipsLayout_tinyleft.ipsLayout .ipsLayout_left {
+    margin-left: -50px;
+    width: 40px;
+}
+.ipsLayout .ipsLayout_left {
+    float: left !important;
+    margin-left: -210px;
+    width: 200px;
+}
+.ipsLayout_content, .ipsLayout .ipsLayout_left, .ipsLayout_right {
+    position: relative;
+}
+.ipsLayout_content {
+    float: left;
+    width: 100%;
+}
+.ipsType_pagetitle, .ipsType_subtitle {
+    color: #323232;
+    font: 300 26px/1.3 Helvetica,Arial,sans-serif;
+}
+.ipsType_subtitle {
+    font-size: 18px !important;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.ipsBox.ipsLayout_tinyleft.ipsLayout_withleft {
+    padding-left: 60px;
+}
+.ipsBox {
+    background: none repeat scroll 0 0 #EBF0F3;
+}
+.maintitle {
+    background: url("http://www.autoitbrasil.com/public/style_images/master/maintitle.png") repeat-x scroll center top #2C5687;
+    border-color: #316897;
+    border-radius: 4px 4px 0 0;
+    border-style: solid;
+    border-width: 1px 1px 0;
+    box-shadow: 0 1px 0 #528CBC inset;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 10px 10px 11px;
+}
+.left {
+    float: left;
+}
+ol, ul {
+    list-style: none outside none;
+}
+.ipsList_inline > li:first-child {
+    margin-left: 0;
+}
+.ipsList_inline > li:last-child {
+    margin-right: 0;
+}
+.ipsList_inline > li {
+    display: inline-block;
+    margin: 0 3px;
+}
+.ipsFilterbar li {
+    font-size: 11px;
+    margin: 0 15px 0 0;
+}
+.ipsFilterbar li a {
+    color: #FFFFFF !important;
+    opacity: 0.5;
+    text-shadow: 0 1px 0 #0D273E;
+    transition: all 0.3s ease-in-out 0s;
+}
+.ipsFilterbar.bar.altbar li a {
+    color: #244156;
+    opacity: 0.8 !important;
+    text-shadow: none;
+}
+.ipsFilterbar:hover li a {
+    opacity: 0.8 !important;
+}
+.ipsFilterbar li a:hover {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+}
+.ipsFilterbar li img {
+    margin-top: -3px;
+}
+.ipsFilterbar li.active {
+    opacity: 1;
+}
+.ipsFilterbar li.active a, .ipsFilterbar.bar.altbar li.active a {
+    background: none repeat scroll 0 0 #244156;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2) inset;
+    color: ##FFFFFF !important;
+    font-weight: bold;
+    opacity: 1;
+    padding: 4px 10px;
+}
+.ipsBox_container {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DBE4EF;
+}
+.ipsBox, .ipsPad {
+    padding: 9px;
+}
+.row1, .post_block.row1 {
+    background-color: #FFFFFF;
+}
+.row2, .post_block.row2 {
+    background-color: #F1F6F9;
+}
+.ipsUserPhoto_medium {
+    height: 50px;
+    width: 50px;
+}
+.ipsUserPhoto {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D5D5D5 !important
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    padding: 1px;
+}
+.ipsUserPhotoLink:hover .ipsUserPhoto {
+    border-color: #7D7D7D !important;
+}
+.ipsUserPhoto:hover{
+    border-color: #7D7D7D !important;
+}
+.ipsBox_withphoto {
+    margin-left: 65px;
+}
+.right {
+    float: right;
+}
+.ipsMemberList > li .ipsButton_secondary {
+    margin-top: 15px;
+}
+.ipsMemberList .ipsButton_secondary {
+    opacity: 0.3;
+}
+.ipsButton_secondary {
+    background: -moz-linear-gradient(center top , #F6F6F6 0%, #E5E5E5 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #DBDBDB;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 #FFFFFF inset, 0 1px 0 rgba(0, 0, 0, 0.3);
+    color: #616161;
+    display: inline-block;
+    font-size: 12px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 10px;
+    transition: all 0.2s ease-in-out 0s;
+    white-space: nowrap;
+}
+.ipsMemberList li:hover .ipsButton_secondary, .ipsMemberList tr:hover .ipsButton_secondary {
+    opacity: 1;
+}
+.ipsButton_secondary:hover {
+    border-color: #9A9A9A;
+    color: #4C4C4C;
+}
+.ipsMemberList li .reputation {
+    margin: 5px 10px 0 0;
+}
+.reputation.zero {
+    background: none repeat scroll 0 0 #DEDEDE;
+    color: #6E6E6E;
+}
+.reputation.positive, .reputation.negative {
+    color: #FFFFFF;
+}
+.reputation.positive, .members li.positive {
+    background: none repeat scroll 0 0 #6F8F52;
+}
+.reputation {
+    border-radius: 3px 3px 3px 3px;
+    display: inline-block;
+    font-weight: bold;
+    padding: 3px 8px;
+}
+.positive {
+    color: #6F8F52;
+}
+.ipsType_small {
+    font-size: 12px;
+}
+.desc, .desc.blend_links a, p.posted_info {
+    color: #777777;
+    font-size: 12px;
+}
+.desc {
+margin-left: 0 !important;
+}
+-->
+</style>

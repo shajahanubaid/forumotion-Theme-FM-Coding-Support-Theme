@@ -1,0 +1,16 @@
+$(document).ready(function(){
+var rdtOn = $('.rdtOn strong').html();
+var lastUser = $('.lastUser strong').html();
+var totalUser = $('.totalUser strong').html();
+var totalPost = $('.totalPost strong').html();
+ 
+ 
+$('ul.statsPers').prepend('
+<li><span>'+totalPost+'</span> Total Posts</li>
+<li><span>'+totalUser+'</span> Total Member</li>
+<li><span>'+lastUser+'</span> Newest Member</li>
+<li><span>'+rdtOn+'</span> Most Online</li>
+');
+ 
+ 
+});

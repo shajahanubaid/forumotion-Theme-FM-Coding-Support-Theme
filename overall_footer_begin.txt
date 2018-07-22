@@ -1,0 +1,83 @@
+<!-- BEGIN html_validation -->
+<div>
+	<div>
+		<div>
+			<div>
+				<div>
+					<div>
+						<div>
+							<div>
+<!-- END html_validation -->
+					
+                                                 
+                                                  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="{ID_RIGHT}">
+				<!-- BEGIN giefmod_index2 -->
+				{giefmod_index2.MODVAR}
+				<!-- BEGIN saut -->
+				<div style="height:{SPACE_ROW}px"></div>
+				<!-- END saut -->
+				<!-- END giefmod_index2 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div id="pun-foot">
+
+ <div id="statistics">
+                  <br />
+                  <ul class="statsPers">
+                    <li class="statHide totalPost">Total Posts: {TOTAL_POSTS}</li>
+                    <li class="statHide totalUser">Total Members: {TOTAL_USERS}</li>
+                    <li class="statHide lastUser">Newest Member: {NEWEST_USER}</li>
+                    <li class="statHide rdtOn">Most Online: {RECORD_USERS}</li>
+                  </ul>
+              <br />
+</div>
+
+
+<div id="pun-info" class="main">
+  <div class="statistics_head">
+</div>
+	<div class="main-statistics">
+		<div id="onlinelist">
+			<p>{TOTAL_USERS_ONLINE}<br />
+			{LOGGED_IN_USER_LIST}<br />
+                          
+			{L_ONLINE_USERS}
+			{L_CONNECTED_MEMBERS}<br /></p>
+			<div class="clear"></div>
+
+			<p>{GROUP_LEGEND}</p>
+		</div>
+	</div>
+</div> 
+ 
+	<div id="pun-about" class="clearfix">
+		<form action="{S_JUMPBOX_ACTION}" method="get" name="jumpbox" onsubmit="if(document.jumpbox.f.value == -1){return false;}" id="qjump">
+			<fieldset>
+				<p><label>{L_JUMP_TO}:&nbsp;</label></p>
+				{S_JUMPBOX_SELECT}&nbsp;<input type="submit" value="{L_GO}" />
+			</fieldset>
+		</form>
+		<ul>
+			<li>
+<!-- BEGIN html_validation -->
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- END html_validation -->
+
+<style>
+  #onlinelist, .statistics_head {
+display: none;
+}
+</style>

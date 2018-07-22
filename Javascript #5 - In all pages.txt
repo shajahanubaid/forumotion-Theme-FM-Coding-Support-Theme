@@ -1,0 +1,3 @@
+$(function() {
+$("#customlogoutlink").attr("href",  $("#logout").attr("href"));
+});

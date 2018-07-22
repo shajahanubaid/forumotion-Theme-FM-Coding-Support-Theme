@@ -1,0 +1,7 @@
+$(document).ready(function () {
+$('.statused .tcr').each(function(e) {
+var l = this.getElementsByTagName('strong')[0].firstChild.href;
+$(this).prepend('<span class="avatar-index" id="avatar-index'+e+'"></span>');
+$('#avatar-index'+e).load(l+' .module .main-content.clearfix.center:eq(0) img:eq(0)');
+});
+});;

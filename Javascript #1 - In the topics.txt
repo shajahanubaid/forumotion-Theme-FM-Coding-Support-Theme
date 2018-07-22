@@ -1,0 +1,13 @@
+jQuery(document).ready(function() {
+jQuery('#quick_reply').before('<div id="quick-avatar"></div> ');
+});
+jQuery(document).ready(function(){
+  jQuery.get('/profile?mode=editprofile&page_profil=avatars', function(data) {
+      link = jQuery('.frm dl dd img', data).attr('src');
+      if(link){
+        jQuery('#quick-avatar').html('<a href="/profile?mode=editprofile&page_profil=avatars"><img src="'+link+'" alt=""></a>');
+      }else{
+        jQuery('#quick-avatar').html('');
+      }
+  });
+});
