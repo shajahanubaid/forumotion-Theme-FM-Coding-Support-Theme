@@ -8,3 +8,5 @@ Theme: FM Coding Support Theme #2 Author: IPB &amp; CS Version: [PunBB]
 ![screenshot_11](https://user-images.githubusercontent.com/33887787/43047937-0a86a7de-8dfd-11e8-9ac9-9044565ed9d9.png)
 ![screenshot_12](https://user-images.githubusercontent.com/33887787/43047934-09dc2dae-8dfd-11e8-9d67-0324f763a171.png)
 ![screenshot_13](https://user-images.githubusercontent.com/33887787/43047939-0fb17b80-8dfd-11e8-8907-c051f2ca9a40.png)
+![screenshot_6](https://user-images.githubusercontent.com/33887787/43047986-cf193490-8dfd-11e8-92ca-067bfab311b5.png)
+![screenshot_7](https://user-images.githubusercontent.com/33887787/43047988-d1f07494-8dfd-11e8-9473-ed86b92314f3.png)
